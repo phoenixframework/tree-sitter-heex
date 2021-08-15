@@ -136,7 +136,7 @@
   },
   {
     "type": "expression_value",
-    "named": false,
+    "named": true,
     "fields": {}
   },
   {
