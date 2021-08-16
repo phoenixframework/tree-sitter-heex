@@ -52,6 +52,10 @@
           "named": true
         },
         {
+          "type": "doctype",
+          "named": true
+        },
+        {
           "type": "end_component",
           "named": true
         },
@@ -88,6 +92,11 @@
         }
       ]
     }
+  },
+  {
+    "type": "doctype",
+    "named": true,
+    "fields": {}
   },
   {
     "type": "end_component",
@@ -157,6 +166,10 @@
         },
         {
           "type": "directive",
+          "named": true
+        },
+        {
+          "type": "doctype",
           "named": true
         },
         {
@@ -298,6 +311,10 @@
           "named": true
         },
         {
+          "type": "doctype",
+          "named": true
+        },
+        {
           "type": "end_tag",
           "named": true
         },
@@ -341,6 +358,10 @@
     "named": false
   },
   {
+    "type": "<!",
+    "named": false
+  },
+  {
     "type": "<%",
     "named": false
   },
@@ -373,6 +394,10 @@
     "named": false
   },
   {
+    "type": "DOCTYPE",
+    "named": false
+  },
+  {
     "type": "attribute_name",
     "named": true
   },
@@ -383,6 +408,10 @@
   {
     "type": "component_name",
     "named": true
+  },
+  {
+    "type": "html",
+    "named": false
   },
   {
     "type": "tag_name",

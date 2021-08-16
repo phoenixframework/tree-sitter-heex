@@ -5,11 +5,19 @@ module.exports = grammar({
     fragment: $ => repeat($._node),
 
     _node: $ => choice(
+      $.doctype,
       $.tag,
       $.component,
       $.text,
       $.comment,
       $.directive
+    ),
+
+    doctype: $ => seq(
+      '<!',
+      'DOCTYPE',
+      'html',
+      '>'
     ),
 
     tag: $ => choice(
@@ -140,17 +148,17 @@ module.exports = grammar({
       prec.left(
         seq(
           alias(repeat1(/[^%]+|%/), $.expression_value),
-          choice('%>'),
+          '%>',
         )
       )
     ),
 
     comment: $ => seq(
-      choice('<%#'),
+      '<%#',
       prec.left(
         seq(
           repeat1(/[^%]+|%/),
-          choice('%>')
+          '%>'
         )
       )
     ),
