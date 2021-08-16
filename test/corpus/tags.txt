@@ -53,3 +53,36 @@ HTML Nested Tags
         (tag_name)))
     (end_tag
       (tag_name))))
+
+================================================================================
+DOCTYPE
+================================================================================
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <body>
+  <%= @inner_content %>
+  </body> 
+</html>
+
+--------------------------------------------------------------------------------
+
+(fragment
+  (doctype)
+  (tag
+    (start_tag
+      (tag_name)
+      (attribute
+        (attribute_name)
+        (quoted_attribute_value
+          (attribute_value))))
+    (tag
+      (start_tag
+        (tag_name))
+      (directive
+        (expression_value))
+      (end_tag
+        (tag_name)))
+    (end_tag
+      (tag_name))))

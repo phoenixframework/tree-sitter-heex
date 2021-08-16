@@ -15,6 +15,7 @@ Parsing support for the following nodes:
 * Attributes
 * Text
 * Comments
+* Doctype
 
 ## Queries
 
