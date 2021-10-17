@@ -290,25 +290,38 @@
           "value": "{"
         },
         {
-          "type": "SYMBOL",
-          "name": "expression_value"
-        },
-        {
-          "type": "STRING",
-          "value": "}"
+          "type": "PREC_LEFT",
+          "value": 0,
+          "content": {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "ALIAS",
+                "content": {
+                  "type": "REPEAT",
+                  "content": {
+                    "type": "SYMBOL",
+                    "name": "_expression_value"
+                  }
+                },
+                "named": true,
+                "value": "expression_value"
+              },
+              {
+                "type": "STRING",
+                "value": "}"
+              }
+            ]
+          }
         }
       ]
     },
-    "expression_value": {
+    "_expression_value": {
       "type": "CHOICE",
       "members": [
         {
           "type": "PATTERN",
           "value": "[^{}]+"
-        },
-        {
-          "type": "STRING",
-          "value": "{}"
         },
         {
           "type": "SEQ",
@@ -318,13 +331,16 @@
               "value": "{"
             },
             {
-              "type": "ALIAS",
-              "content": {
-                "type": "SYMBOL",
-                "name": "expression_value"
-              },
-              "named": false,
-              "value": "expression_value"
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "_expression_value"
+                },
+                {
+                  "type": "BLANK"
+                }
+              ]
             },
             {
               "type": "STRING",
