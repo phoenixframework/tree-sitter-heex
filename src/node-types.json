@@ -134,7 +134,7 @@
     "fields": {},
     "children": {
       "multiple": false,
-      "required": true,
+      "required": false,
       "types": [
         {
           "type": "expression_value",
@@ -423,10 +423,6 @@
   },
   {
     "type": "{",
-    "named": false
-  },
-  {
-    "type": "{}",
     "named": false
   },
   {

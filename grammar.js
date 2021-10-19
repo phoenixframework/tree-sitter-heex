@@ -100,16 +100,19 @@ module.exports = grammar({
 
     expression: $ => seq(
       '{',
-      $.expression_value,
-      '}'
+      prec.left(
+        seq(
+          alias(repeat($._expression_value), $.expression_value),
+          '}'
+        )
+      )
     ),
 
-    expression_value: $ => choice(
+    _expression_value: $ => choice(
       /[^{}]+/,
-      '{}',
       seq(
         '{',
-        alias($.expression_value, 'expression_value'),
+        optional($._expression_value),
         '}'
       ),
     ),
