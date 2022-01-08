@@ -514,6 +514,81 @@
       ]
     },
     "comment": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "_html_comment"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_bang_comment"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_hash_comment"
+        }
+      ]
+    },
+    "_html_comment": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "<!--"
+        },
+        {
+          "type": "PREC_LEFT",
+          "value": 0,
+          "content": {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "REPEAT1",
+                "content": {
+                  "type": "PATTERN",
+                  "value": "[^-]+|-"
+                }
+              },
+              {
+                "type": "STRING",
+                "value": "-->"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "_bang_comment": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "<%!--"
+        },
+        {
+          "type": "PREC_LEFT",
+          "value": 0,
+          "content": {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "REPEAT1",
+                "content": {
+                  "type": "PATTERN",
+                  "value": "[^-]+|-"
+                }
+              },
+              {
+                "type": "STRING",
+                "value": "--%>"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "_hash_comment": {
       "type": "SEQ",
       "members": [
         {
