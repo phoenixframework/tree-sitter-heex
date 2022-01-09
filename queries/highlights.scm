@@ -2,7 +2,10 @@
 
 ; HEEx attributes are highlighted as HTML attributes
 (attribute_name) @attribute
-(quoted_attribute_value) @string
+[
+  (attribute_value)
+  (quoted_attribute_value)
+] @string
 
 ; HEEx tags are highlighted as HTML
 (tag_name) @tag
@@ -31,3 +34,5 @@
 "=" @operator
 
 (comment) @comment
+
+(ERROR) @error

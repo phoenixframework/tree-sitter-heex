@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<%# ^ constant %>
+<html>
+<%# <- punctuation.bracket %>
+<%#  ^ punctuation.bracket %>
+  <head>
+  <%# ^ tag %>
+    <%= csrf_meta_tag() %>
+    <%# <- keyword %>
+    <%#                 ^ keyword %>
+    <link phx-track-static rel="stylesheet" src={ Routes.static_path(@conn, "/css/app.css") } />
+    <%# <- punctuation.bracket %>
+    <%# ^ tag %>
+    <%#    ^ attribute %>
+    <%#                     ^ attribute %>
+    <%#                           ^ string %>
+    <%#                                         ^ keyword %>
+    <%#                                                                                     ^ keyword %>
+    <%#                                                                                       ^ punctuation.bracket %>
+  </head>
+  <body>
+    <%= if true do %>
+    <%# <- keyword %>
+    <%#            ^ keyword %>
+      <MyComponents.modal key=value key="value" key={ @value } />
+      <%# <- punctuation.bracket %>
+      <%# ^ module %>
+      <%#                  ^ attribute %>
+      <%#                      ^ string %>
+      <%#                            ^ attribute %>
+      <%#                                 ^ string %>
+      <%#                                        ^ attribute %>
+      <%#                                           ^ keyword %>
+      <%#                                                    ^ keyword %>
+      <%#                                                      ^ punctuation.bracket %>
+      <.form />
+      <%# ^ module %>
+    <% end %>
+    <%# here we're intentionally leaving a tag unclosed to trigger the error later on </html>: %>
+    <div></div></div>
+<%#   ^ tag %>
+<%#         ^ tag %>
+<%#               ^ tag %>
+  </body>
+</html>
+<%# ^ error %>
