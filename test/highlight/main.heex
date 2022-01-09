@@ -22,19 +22,24 @@
     <%= if true do %>
     <%# <- keyword %>
     <%#            ^ keyword %>
-      <MyComponents.modal key=value key="value" key={ @value } />
+      <MyApp.Components.modal key=value key="value" key={ @value } />
       <%# <- punctuation.bracket %>
       <%# ^ module %>
-      <%#                  ^ attribute %>
-      <%#                      ^ string %>
-      <%#                            ^ attribute %>
-      <%#                                 ^ string %>
-      <%#                                        ^ attribute %>
-      <%#                                           ^ keyword %>
-      <%#                                                    ^ keyword %>
-      <%#                                                      ^ punctuation.bracket %>
+      <%#   ^ module %>
+      <%#       ^ module %>
+      <%#              ^ punctuation.delimiter %>
+      <%#                 ^ function %>
+      <%#                      ^ attribute %>
+      <%#                         ^ string %>
+      <%#                                ^ attribute %>
+      <%#                                    ^ string %>
+      <%#                                           ^ attribute %>
+      <%#                                               ^ keyword %>
+      <%#                                                        ^ keyword %>
+      <%#                                                          ^ punctuation.bracket %>
       <.form />
-      <%# ^ module %>
+      <%# ^ function %>
+<%#    ^ punctuation.delimiter %>
     <% end %>
     <%# here we're intentionally leaving a tag unclosed to trigger the error later on </html>: %>
     <div></div></div>

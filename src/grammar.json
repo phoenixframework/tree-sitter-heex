@@ -700,6 +700,53 @@
         }
       ]
     },
+    "component_name": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "module"
+                },
+                {
+                  "type": "BLANK"
+                }
+              ]
+            },
+            {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "STRING",
+                  "value": "."
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "function"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "SYMBOL",
+          "name": "module"
+        }
+      ]
+    },
+    "module": {
+      "type": "PATTERN",
+      "value": "([A-Z][^\\-<>{}!\"'/=\\s\\.]*)(\\.[A-Z][^\\-<>{}!\"'/=\\s\\.]*)*"
+    },
+    "function": {
+      "type": "PATTERN",
+      "value": "[a-z][^\\-<>{}!\"'/=\\s\\.]*"
+    },
     "_code": {
       "type": "PATTERN",
       "value": "[^%\\s]+|[%\\s]"
@@ -708,13 +755,16 @@
       "type": "PATTERN",
       "value": "[a-z]+[^\\-<>{}!\"'/=\\s]*"
     },
-    "component_name": {
-      "type": "PATTERN",
-      "value": "[.A-Z]+[^\\-<>{}!\"'/=\\s]*"
-    },
     "attribute_name": {
-      "type": "PATTERN",
-      "value": "[^<>{}\"'/=\\s]+"
+      "type": "TOKEN",
+      "content": {
+        "type": "PREC",
+        "value": -1,
+        "content": {
+          "type": "PATTERN",
+          "value": "[^<>{}\"'/=\\s]+"
+        }
+      }
     },
     "text": {
       "type": "PATTERN",

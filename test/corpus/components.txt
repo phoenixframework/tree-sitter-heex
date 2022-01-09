@@ -10,22 +10,28 @@ Component
 (fragment
   (component
     (start_component
-      (component_name))
+      (component_name
+        (module)
+        (function)))
     (end_component
-      (component_name))))
+      (component_name
+        (module)
+        (function)))))
 
 ================================================================================
 Self-Closing Component
 ================================================================================
 
-<Root.render/>
+<MyApp.Components.Root.render/>
 
 --------------------------------------------------------------------------------
 
 (fragment
   (component
     (self_closing_component
-      (component_name))))
+      (component_name
+        (module)
+        (function)))))
 
 ================================================================================
 Nested Components
@@ -42,17 +48,24 @@ Nested Components
 (fragment
   (component
     (start_component
-      (component_name))
+      (component_name
+        (module)
+        (function)))
     (component
       (start_component
-        (component_name))
+        (component_name
+          (module)))
       (component
         (self_closing_component
-          (component_name)))
+          (component_name
+            (module))))
       (end_component
-        (component_name)))
+        (component_name
+          (module))))
     (end_component
-      (component_name))))
+      (component_name
+        (module)
+        (function)))))
 
 ================================================================================
 Function with Module Remote Component
@@ -65,7 +78,9 @@ Function with Module Remote Component
 (fragment
   (component
     (self_closing_component
-      (component_name)
+      (component_name
+        (module)
+        (function))
       (attribute
         (attribute_name)
         (quoted_attribute_value
@@ -82,7 +97,8 @@ Function without Remote Component
 (fragment
   (component
     (self_closing_component
-      (component_name)
+      (component_name
+        (function))
       (attribute
         (attribute_name)
         (quoted_attribute_value
@@ -113,7 +129,9 @@ Simple Example
           (attribute_value))))
     (component
       (self_closing_component
-        (component_name)
+        (component_name
+          (module)
+          (function))
         (attribute
           (attribute_name)
           (quoted_attribute_value
@@ -126,7 +144,8 @@ Simple Example
           (expression_value))))
     (component
       (self_closing_component
-        (component_name)
+        (component_name
+          (function))
         (attribute
           (attribute_name)
           (quoted_attribute_value

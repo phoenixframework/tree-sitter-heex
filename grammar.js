@@ -197,13 +197,20 @@ module.exports = grammar({
       ),
     ),
 
+    component_name: $ => choice(
+      seq(optional($.module), seq(".", $.function)),
+      $.module
+    ),
+
+    module: $ => /([A-Z][^\-<>{}!"'/=\s\.]*)(\.[A-Z][^\-<>{}!"'/=\s\.]*)*/,
+
+    function: $ => /[a-z][^\-<>{}!"'/=\s\.]*/,
+
     _code: $ => /[^%\s]+|[%\s]/,
 
     tag_name: $ => /[a-z]+[^\-<>{}!"'/=\s]*/,
 
-    component_name: $ => /[.A-Z]+[^\-<>{}!"'/=\s]*/,
-
-    attribute_name: $ => /[^<>{}"'/=\s]+/,
+    attribute_name: $ => token(prec(-1, /[^<>{}"'/=\s]+/)),
 
     text: $ => /[^<>{}\s]([^<>{}]*[^<>{}\s])?/,
 }})
