@@ -26,12 +26,9 @@
   ">"
 ] @punctuation.bracket
 
+(directive ["<%" "<%%=" "<%=" "%>"] @keyword)
+
 [
-  "<%"
-  "<%#"
-  "<%%="
-  "<%="
-  "%>"
   "{"
   "}"
 ] @keyword
