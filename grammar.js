@@ -155,8 +155,30 @@ module.exports = grammar({
         )
       )
     ),
+    
+    comment: $ => choice($._html_comment, $._bang_comment, $._hash_comment),
 
-    comment: $ => seq(
+    _html_comment: $ => seq(
+      '<!--',
+      prec.left(
+        seq(
+          repeat1(/[^-]+|-/),
+          '-->'
+        )
+      )
+    ),
+
+    _bang_comment: $ => seq(
+      '<%!--',
+      prec.left(
+        seq(
+          repeat1(/[^-]+|-/),
+          '--%>'
+        )
+      )
+    ),
+
+    _hash_comment: $ => seq(
       '<%#',
       prec.left(
         seq(
