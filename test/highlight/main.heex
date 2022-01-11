@@ -28,7 +28,8 @@
       <%#   ^ module %>
       <%#       ^ module %>
       <%#              ^ punctuation.delimiter %>
-      <%#                 ^ function %>
+      <%#               ^ function %>
+      <%#                   ^ function %>
       <%#                      ^ attribute %>
       <%#                         ^ string %>
       <%#                                ^ attribute %>
@@ -40,6 +41,16 @@
       <.form />
       <%# ^ function %>
 <%#    ^ punctuation.delimiter %>
+      <Foo.Bar.Baz.Fizz.buzz />
+      <%# <- punctuation.bracket %>
+<%#    ^ module %>
+<%#       ^ module %>
+<%#           ^ module %>
+<%#                ^ module %>
+<%#                   ^ module %>
+<%#                    ^ punctuation.delimiter %>
+<%#                     ^ function %>
+<%#                        ^ function %>
     <% end %>
     <%# here we're intentionally leaving a tag unclosed to trigger the error later on </html>: %>
     <div></div></div>
