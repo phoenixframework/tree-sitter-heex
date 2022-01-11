@@ -1,5 +1,8 @@
 (doctype) @constant
 
+((attribute_name) @keyword
+ (#match? @keyword "^phx-"))
+
 ; HEEx attributes are highlighted as HTML attributes
 (attribute_name) @attribute
 [
