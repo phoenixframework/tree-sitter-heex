@@ -150,7 +150,7 @@ module.exports = grammar({
       choice('<%', '<%=', '<%%', '<%%='),
       prec.left(
         seq(
-          alias(repeat1(/[^%]+|%/), $.expression_value),
+          choice($.partial_expression_value, $.expression_value),
           '%>',
         )
       )
@@ -182,17 +182,35 @@ module.exports = grammar({
       '<%#',
       prec.left(
         seq(
-          repeat1(/[^%]+|%/),
+          repeat1($._code),
           '%>'
         )
       )
     ),
 
+    expression_value: $ => repeat1($._code),
+
+    partial_expression_value: $ => seq(
+      choice(
+        seq(/end[\)\]\}]*/, repeat($._code)),
+        seq(repeat($._code), choice('do', '->'), optional(seq('#', repeat($._code)))),
+      ),
+    ),
+
+    component_name: $ => choice(
+      seq(optional($.module), seq(".", $.function)),
+      $.module
+    ),
+
+    module: $ => /([A-Z][^\-<>{}!"'/=\s\.]*)(\.[A-Z][^\-<>{}!"'/=\s\.]*)*/,
+
+    function: $ => /[a-z][^\-<>{}!"'/=\s\.]*/,
+
+    _code: $ => /[^%\s]+|[%\s]/,
+
     tag_name: $ => /[a-z]+[^\-<>{}!"'/=\s]*/,
 
-    component_name: $ => /[.A-Z]+[^\-<>{}!"'/=\s]*/,
-
-    attribute_name: $ => /[^<>{}"'/=\s]+/,
+    attribute_name: $ => token(prec(-1, /[^<>{}"'/=\s]+/)),
 
     text: $ => /[^<>{}\s]([^<>{}]*[^<>{}\s])?/,
 }})

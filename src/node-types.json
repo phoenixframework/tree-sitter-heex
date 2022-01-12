@@ -79,6 +79,25 @@
     }
   },
   {
+    "type": "component_name",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "function",
+          "named": true
+        },
+        {
+          "type": "module",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "directive",
     "named": true,
     "fields": {},
@@ -88,6 +107,10 @@
       "types": [
         {
           "type": "expression_value",
+          "named": true
+        },
+        {
+          "type": "partial_expression_value",
           "named": true
         }
       ]
@@ -182,6 +205,11 @@
         }
       ]
     }
+  },
+  {
+    "type": "partial_expression_value",
+    "named": true,
+    "fields": {}
   },
   {
     "type": "quoted_attribute_value",
@@ -342,6 +370,10 @@
     "named": false
   },
   {
+    "type": "#",
+    "named": false
+  },
+  {
     "type": "%>",
     "named": false
   },
@@ -355,6 +387,14 @@
   },
   {
     "type": "-->",
+    "named": false
+  },
+  {
+    "type": "->",
+    "named": false
+  },
+  {
+    "type": ".",
     "named": false
   },
   {
@@ -422,12 +462,20 @@
     "named": true
   },
   {
-    "type": "component_name",
+    "type": "do",
+    "named": false
+  },
+  {
+    "type": "function",
     "named": true
   },
   {
     "type": "html",
     "named": false
+  },
+  {
+    "type": "module",
+    "named": true
   },
   {
     "type": "tag_name",

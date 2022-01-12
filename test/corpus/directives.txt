@@ -1,0 +1,42 @@
+================================================================================
+If expression spread between multiple directives
+================================================================================
+
+<%= if true do %>
+  <%= @x %>
+<% end %>
+
+--------------------------------------------------------------------------------
+
+(fragment
+  (directive
+    (partial_expression_value))
+  (directive
+    (expression_value))
+  (directive
+    (partial_expression_value)))
+
+================================================================================
+Case expression spread between multiple directives
+================================================================================
+
+<%= case @x do %>
+  <%= ^x -> %>X, <%= x %>
+  <%= _ -> %>Not X
+<% end %>
+
+--------------------------------------------------------------------------------
+
+(fragment
+  (directive
+    (partial_expression_value))
+  (directive
+    (partial_expression_value))
+  (text)
+  (directive
+    (expression_value))
+  (directive
+    (partial_expression_value))
+  (text)
+  (directive
+    (partial_expression_value)))

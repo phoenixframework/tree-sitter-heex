@@ -9,7 +9,9 @@ Unquoted Attribute
 (fragment
   (component
     (self_closing_component
-      (component_name)
+      (component_name
+        (module)
+        (function))
       (attribute
         (attribute_name)
         (attribute_value)))))
@@ -25,7 +27,9 @@ Boolean Attribute
 (fragment
   (component
     (self_closing_component
-      (component_name)
+      (component_name
+        (module)
+        (function))
       (attribute
         (attribute_name)))))
 
@@ -40,7 +44,9 @@ Single-Quoted Attribute
 (fragment
   (component
     (self_closing_component
-      (component_name)
+      (component_name
+        (module)
+        (function))
       (attribute
         (attribute_name)
         (quoted_attribute_value
@@ -57,7 +63,9 @@ Double-Quoted Attribute
 (fragment
   (component
     (self_closing_component
-      (component_name)
+      (component_name
+        (module)
+        (function))
       (attribute
         (attribute_name)
         (quoted_attribute_value
@@ -74,7 +82,9 @@ Expression Attribute
 (fragment
   (component
     (self_closing_component
-      (component_name)
+      (component_name
+        (module)
+        (function))
       (attribute
         (attribute_name)
         (expression
