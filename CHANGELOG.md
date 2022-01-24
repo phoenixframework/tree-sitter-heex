@@ -1,5 +1,9 @@
 # Changelog
 
+# 0.3.1
+
+- Upgrade to tree-sitter-cli 0.20.4
+
 # 0.3.0
 
 - Add highlight queries, thanks @the-mikedavis!
