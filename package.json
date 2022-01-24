@@ -11,7 +11,7 @@
   "author": "Clay",
   "license": "MIT",
   "devDependencies": {
-    "tree-sitter-cli": "^0.20.0",
+    "tree-sitter-cli": "^0.20.4",
     "nan": "^2.15.0"
   },
   "tree-sitter": [
