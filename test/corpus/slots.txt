@@ -1,0 +1,37 @@
+================================================================================
+Named Slots
+================================================================================
+
+<.modal>
+  <:header>
+    This is the top of the modal.
+  </:header>
+  This is the content of the modal.
+</.modal>
+
+--------------------------------------------------------------------------------
+
+(fragment
+  (ERROR
+    (start_component
+      (component_name
+        (function)))
+    (component
+      (start_component
+        (component_name
+          (MISSING module))
+        (attribute
+          (attribute_name)))
+      (text)
+      (ERROR
+        (attribute_name)
+        (attribute_name)
+        (attribute_name)
+        (attribute_name)
+        (attribute_name)
+        (attribute_name)
+        (attribute_name)
+        (attribute_name))
+      (end_component
+        (component_name
+          (function))))))
