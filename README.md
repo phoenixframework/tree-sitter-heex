@@ -4,24 +4,49 @@
 
 For EEx support, see [tree-sitter-eex](https://github.com/connorlay/tree-sitter-eex). For Surface support, see [tree-sitter-surface](https://github.com/connorlay/tree-sitter-surface).
 
-## Features
+## Installation
 
-Parsing support for the following nodes:
+### Requirements
+* [NodeJS](https://nodejs.org/en/) LTS
+* [asdf](https://asdf-vm.com/) (optional)
+* [Docker](https://www.docker.com/) (optional)
 
-* Tags
-* Components
-* Directives
-* Expressions
-* Attributes
-* Text
-* Comments
-* Doctype
+See [Creating Parsers](https://tree-sitter.github.io/tree-sitter/creating-parsers) for more information.
 
-## Queries
+### Usage
+1. Clone this repository:
+```sh
+git clone git@github.com:connorlay/tree-sitter-heex.git
+```
 
-* Highlights
-* Folds
-* Indents
-* Injections
+2. (Optional) Install NodeJS via asdf:
+```sh
+cd tree-sitter-heex
+asdf install
+```
 
-Currently supported in NeoVim via [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter).
+3. Install npm dependencies:
+```sh
+npm install
+```
+
+4. Run the tests:
+```sh
+npm test
+```
+
+5. (Optional) Update the tests (useful when contributing):
+```sh
+npm run update_test
+```
+
+6. (Optional) Run the web playground (requires Docker):
+```sh
+npm run playground
+```
+
+See [Using Parsers](https://tree-sitter.github.io/tree-sitter/using-parsers) for more information.
+
+## Editor Support
+
+* [neovim](https://neovim.io/) via [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter)
