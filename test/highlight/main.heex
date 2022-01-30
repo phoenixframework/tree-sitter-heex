@@ -6,22 +6,22 @@
   <head>
   <%# ^ tag %>
     <%= csrf_meta_tag() %>
-    <%# <- keyword %>
-    <%#                 ^ keyword %>
+    <%# <- punctuation.bracket %>
+    <%#                 ^ punctuation.bracket %>
     <link phx-track-static rel="stylesheet" src={ Routes.static_path(@conn, "/css/app.css") } />
     <%# <- punctuation.bracket %>
     <%# ^ tag %>
-    <%#    ^ keyword %>
+    <%#    ^ attribute %>
     <%#                     ^ attribute %>
     <%#                           ^ string %>
-    <%#                                         ^ keyword %>
-    <%#                                                                                     ^ keyword %>
+    <%#                                         ^ punctuation.bracket %>
+    <%#                                                                                     ^ punctuation.bracket %>
     <%#                                                                                       ^ punctuation.bracket %>
   </head>
   <body>
     <%= if true do %>
-    <%# <- keyword %>
-    <%#            ^ keyword %>
+    <%# <- punctuation.bracket %>
+    <%#            ^ punctuation.bracket %>
       <MyApp.Components.modal key=value key="value" key={ @value } />
       <%# <- punctuation.bracket %>
       <%# ^ module %>
@@ -35,8 +35,8 @@
       <%#                                ^ attribute %>
       <%#                                    ^ string %>
       <%#                                           ^ attribute %>
-      <%#                                               ^ keyword %>
-      <%#                                                        ^ keyword %>
+      <%#                                               ^ punctuation.bracket %>
+      <%#                                                        ^ punctuation.bracket %>
       <%#                                                          ^ punctuation.bracket %>
       <.form />
       <%# ^ function %>
@@ -51,6 +51,19 @@
 <%#                    ^ punctuation.delimiter %>
 <%#                     ^ function %>
 <%#                        ^ function %>
+      <.component>
+      <%# <- punctuation.bracket %>
+      <%# ^ function %>
+      <%#        <- punctuation.bracket %>
+        <:slot>
+        <%# <- punctuation.bracket %>
+        <%# ^ tag %>
+        <%#   ^ punctuation.bracket %>
+        </:slot>
+        <%# <- punctuation.bracket %>
+        <%# ^ tag %>
+        <%#    ^ punctuation.bracket %>
+      </.component>
     <% end %>
     <%# here we're intentionally leaving a tag unclosed to trigger the error later on </html>: %>
     <div></div></div>
