@@ -191,7 +191,7 @@ module.exports = grammar({
       '<!--',
       prec.left(
         seq(
-          repeat1(/[^-]+|-/),
+          repeat(/[^-]+|-/),
           '-->'
         )
       )
@@ -201,7 +201,7 @@ module.exports = grammar({
       '<%!--',
       prec.left(
         seq(
-          repeat1(/[^-]+|-/),
+          repeat(/[^-]+|-/),
           '--%>'
         )
       )
@@ -211,7 +211,7 @@ module.exports = grammar({
       '<%#',
       prec.left(
         seq(
-          repeat1($._code),
+          repeat($._code),
           '%>'
         )
       )
