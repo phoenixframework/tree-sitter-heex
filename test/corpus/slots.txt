@@ -28,6 +28,35 @@ Named Slots
         (function)))))
 
 ================================================================================
+Named Slots with Attributes
+================================================================================
+
+<.modal>
+  <:header key={@value}>
+  </:header>
+</.modal>
+
+--------------------------------------------------------------------------------
+
+(fragment
+  (component
+    (start_component
+      (component_name
+        (function)))
+    (slot
+      (start_slot
+        (slot_name)
+        (attribute
+          (attribute_name)
+          (expression
+            (expression_value))))
+      (end_slot
+        (slot_name)))
+    (end_component
+      (component_name
+        (function)))))
+
+================================================================================
 Slots must be a child of a Component
 ================================================================================
 
