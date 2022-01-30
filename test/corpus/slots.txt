@@ -12,26 +12,44 @@ Named Slots
 --------------------------------------------------------------------------------
 
 (fragment
-  (ERROR
+  (component
     (start_component
       (component_name
         (function)))
-    (component
-      (start_component
-        (component_name
-          (MISSING module))
-        (attribute
-          (attribute_name)))
+    (slot
+      (start_slot
+        (slot_name))
       (text)
-      (ERROR
-        (attribute_name)
-        (attribute_name)
-        (attribute_name)
-        (attribute_name)
-        (attribute_name)
-        (attribute_name)
-        (attribute_name)
-        (attribute_name))
-      (end_component
-        (component_name
-          (function))))))
+      (end_slot
+        (slot_name)))
+    (text)
+    (end_component
+      (component_name
+        (function)))))
+
+================================================================================
+Slots must be a child of a Component
+================================================================================
+
+<div>
+  <:header>
+    This should produce an ERROR
+  </:header>
+</div>
+
+--------------------------------------------------------------------------------
+
+(fragment
+  (tag
+    (start_tag
+      (tag_name))
+    (ERROR
+      (attribute_name)
+      (attribute_name)
+      (attribute_name)
+      (attribute_name)
+      (attribute_name)
+      (attribute_name)
+      (attribute_name))
+    (end_tag
+      (tag_name))))

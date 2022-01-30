@@ -32,10 +32,21 @@ module.exports = grammar({
     component: $ => choice(
       seq(
         $.start_component,
-        repeat($._node),
+        repeat(
+          choice(
+            $._node,
+            $.slot,
+          ),
+        ),
         $.end_component
       ),
       $.self_closing_component,
+    ),
+
+    slot: $ => seq(
+      $.start_slot,
+      repeat($._node),
+      $.end_slot
     ),
 
     start_tag: $ => seq(
@@ -96,6 +107,24 @@ module.exports = grammar({
         )
       ),
       '/>'
+    ),
+
+    start_slot: $ => seq(
+      '<:',
+      alias($.tag_name, $.slot_name),
+      repeat(
+        choice(
+          $.attribute, 
+          $.expression,
+        )
+      ),
+      '>'
+    ),
+
+    end_slot: $ => seq(
+      '</:',
+      alias($.tag_name, $.slot_name),
+      '>'
     ),
 
     expression: $ => seq(

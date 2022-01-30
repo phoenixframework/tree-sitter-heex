@@ -1,7 +1,42 @@
+; HEEx delimiters
+[
+  "%>"
+  "--%>"
+  "-->"
+  "/>"
+  "<!"
+  "<!--"
+  "<"
+  "<%!--"
+  "<%"
+  "<%#"
+  "<%%="
+  "<%="
+  "</"
+  "</:"
+  "<:"
+  ">"
+  "{"
+  "}"
+] @punctuation.bracket
+
+; HEEx operators are highlighted as such
+"=" @operator
+
+; HEEx inherits the DOCTYPE tag from HTML
 (doctype) @constant
 
-((attribute_name) @keyword
- (#match? @keyword "^phx-"))
+; HEEx comments are highlighted as such
+(comment) @comment
+
+; Tree-sitter parser errors
+(ERROR) @error
+
+; HEEx tags and slots are highlighted as HTML
+[
+ (tag_name) 
+ (slot_name) 
+] @tag
 
 ; HEEx attributes are highlighted as HTML attributes
 (attribute_name) @attribute
@@ -10,9 +45,6 @@
   (quoted_attribute_value)
 ] @string
 
-; HEEx tags are highlighted as HTML
-(tag_name) @tag
-
 ; HEEx components are highlighted as Elixir modules and functions
 (component_name
   [
@@ -20,24 +52,3 @@
     (function) @function
     "." @punctuation.delimiter
   ])
-
-[
-  "/>"
-  "<!"
-  "<"
-  "</"
-  ">"
-] @punctuation.bracket
-
-(directive ["<%" "<%%=" "<%=" "%>"] @keyword)
-
-[
-  "{"
-  "}"
-] @keyword
-
-"=" @operator
-
-(comment) @comment
-
-(ERROR) @error
