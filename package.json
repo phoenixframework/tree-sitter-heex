@@ -3,6 +3,14 @@
   "version": "0.4.0",
   "description": "Tree-sitter grammar for HEEX files (heex)",
   "main": "bindings/node",
+  "keywords": [
+    "elixir",
+    "heex",
+    "lexer",
+    "parser",
+    "phoenix",
+    "tree-sitter"
+  ],
   "scripts": {
     "test": "npx tree-sitter generate && npx tree-sitter test",
     "update_test": "npx tree-sitter generate && npx tree-sitter test -u",
@@ -11,14 +19,16 @@
   "author": "Clay",
   "license": "MIT",
   "devDependencies": {
-    "tree-sitter-cli": "^0.20.4",
-    "nan": "^2.15.0"
+    "nan": "^2.15.0",
+    "tree-sitter-cli": "^0.20.6"
   },
   "tree-sitter": [
     {
+      "scope": "source.heex",
       "file-types": [
         "heex"
-      ]
+      ],
+      "injection-regex": "^(heex)$"
     }
   ]
 }
