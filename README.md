@@ -16,7 +16,7 @@ See [Creating Parsers](https://tree-sitter.github.io/tree-sitter/creating-parser
 ### Usage
 1. Clone this repository:
 ```sh
-git clone git@github.com:connorlay/tree-sitter-heex.git
+git clone https://github.com/phoenixframework/tree-sitter-heex.git
 ```
 
 2. (Optional) Install NodeJS via asdf:
