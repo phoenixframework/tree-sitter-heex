@@ -237,7 +237,7 @@ module.exports = grammar({
 
     _code: $ => /[^%\s]+|[%\s]/,
 
-    tag_name: $ => /[a-z]+[^\-<>{}!"'/=\s]*/,
+    tag_name: $ => /[a-z]+[^<>{}!"'/=\s]*/,
 
     attribute_name: $ => token(prec(-1, /[^<>{}"'/=\s]+/)),
 
