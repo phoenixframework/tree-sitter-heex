@@ -842,7 +842,7 @@
     },
     "tag_name": {
       "type": "PATTERN",
-      "value": "[a-z]+[^\\-<>{}!\"'/=\\s]*"
+      "value": "[a-z]+[^<>{}!\"'/=\\s]*"
     },
     "attribute_name": {
       "type": "TOKEN",

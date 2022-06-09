@@ -591,15 +591,13 @@ static inline bool sym_module_character_set_1(int32_t c) {
 }
 
 static inline bool sym_tag_name_character_set_1(int32_t c) {
-  return (c < '-'
+  return (c < '\''
     ? (c < '\r'
       ? (c < '\t'
         ? c == 0
         : c <= '\n')
-      : (c <= '\r' || (c < '\''
-        ? (c >= ' ' && c <= '"')
-        : c <= '\'')))
-    : (c <= '-' || (c < '{'
+      : (c <= '\r' || (c >= ' ' && c <= '"')))
+    : (c <= '\'' || (c < '{'
       ? (c < '<'
         ? c == '/'
         : c <= '>')
