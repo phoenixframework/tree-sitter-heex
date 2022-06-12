@@ -39,10 +39,11 @@
 ] @tag
 
 ; HEEx attributes are highlighted as HTML attributes
-[
-  (attribute_name)
-  (special_attribute_name)
-] @attribute
+(attribute_name) @attribute
+
+; HEEx special attributes are highlighted as keywords
+(special_attribute_name) @keyword
+
 [
   (attribute_value)
   (quoted_attribute_value)
