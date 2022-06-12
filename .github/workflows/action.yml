@@ -23,5 +23,8 @@ jobs:
       - name: Install npm packages
         run: npm install
 
+      - name: Run formatter
+        run: npm run check_format
+
       - name: Run tests
         run: npm test

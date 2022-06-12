@@ -35,12 +35,17 @@ npm install
 npm test
 ```
 
-5. (Optional) Update the tests (useful when contributing):
+5. Run the code formatter:
+```sh
+npm run format
+```
+
+6. (Optional) Update the tests (useful when contributing):
 ```sh
 npm run update_test
 ```
 
-6. (Optional) Run the web playground (requires Docker):
+7. (Optional) Run the web playground (requires Docker):
 ```sh
 npm run playground
 ```
