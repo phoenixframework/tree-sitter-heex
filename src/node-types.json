@@ -308,6 +308,10 @@
           "named": true
         },
         {
+          "type": "special_attribute",
+          "named": true
+        },
+        {
           "type": "tag_name",
           "named": true
         }
@@ -362,6 +366,30 @@
     }
   },
   {
+    "type": "special_attribute",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "expression",
+          "named": true
+        },
+        {
+          "type": "special_attribute_name",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "special_attribute_name",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "start_component",
     "named": true,
     "fields": {},
@@ -379,6 +407,10 @@
         },
         {
           "type": "expression",
+          "named": true
+        },
+        {
+          "type": "special_attribute",
           "named": true
         }
       ]
@@ -403,6 +435,10 @@
         {
           "type": "slot_name",
           "named": true
+        },
+        {
+          "type": "special_attribute",
+          "named": true
         }
       ]
     }
@@ -421,6 +457,10 @@
         },
         {
           "type": "expression",
+          "named": true
+        },
+        {
+          "type": "special_attribute",
           "named": true
         },
         {
@@ -511,6 +551,18 @@
   },
   {
     "type": "/>",
+    "named": false
+  },
+  {
+    "type": ":for",
+    "named": false
+  },
+  {
+    "type": ":let",
+    "named": false
+  },
+  {
+    "type": ":stream",
     "named": false
   },
   {
