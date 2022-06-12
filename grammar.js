@@ -1,6 +1,11 @@
 module.exports = grammar({
   name: "heex",
 
+  conflicts: ($) => [
+    [$.start_component, $.self_closing_component],
+    [$.start_tag, $.self_closing_tag],
+  ],
+
   rules: {
     fragment: ($) => repeat($._node),
 
@@ -29,18 +34,28 @@ module.exports = grammar({
       ),
 
     start_tag: ($) =>
-      seq("<", $.tag_name, repeat(choice($.attribute, $.expression)), ">"),
+      seq(
+        "<",
+        $.tag_name,
+        repeat(choice($.attribute, $.expression, $.special_attribute)),
+        ">"
+      ),
 
     end_tag: ($) => seq("</", $.tag_name, ">"),
 
     self_closing_tag: ($) =>
-      seq("<", $.tag_name, repeat(choice($.attribute, $.expression)), "/>"),
+      seq(
+        "<",
+        $.tag_name,
+        repeat(choice($.attribute, $.expression, $.special_attribute)),
+        "/>"
+      ),
 
     start_component: ($) =>
       seq(
         "<",
         $.component_name,
-        repeat(choice($.attribute, $.expression)),
+        repeat(choice($.attribute, $.expression, $.special_attribute)),
         ">"
       ),
 
@@ -58,7 +73,7 @@ module.exports = grammar({
       seq(
         "<:",
         alias($.tag_name, $.slot_name),
-        repeat(choice($.attribute, $.expression)),
+        repeat(choice($.attribute, $.expression, $.special_attribute)),
         ">"
       ),
 
@@ -82,6 +97,10 @@ module.exports = grammar({
 
     _expression_value: ($) =>
       choice(/[^{}]+/, seq("{", optional($._expression_value), "}")),
+
+    special_attribute: ($) => seq($.special_attribute_name, "=", $.expression),
+
+    special_attribute_name: ($) => choice(":let", ":for", ":stream"),
 
     attribute: ($) =>
       seq(
@@ -144,7 +163,7 @@ module.exports = grammar({
 
     tag_name: ($) => /[a-z]+[^<>{}!"'/=\s]*/,
 
-    attribute_name: ($) => token(prec(-1, /[^<>{}"'/=\s]+/)),
+    attribute_name: ($) => token(prec(-1, /[^:<>{}"'/=\s]+/)),
 
     text: ($) => /[^<>{}\s]([^<>{}]*[^<>{}\s])?/,
   },

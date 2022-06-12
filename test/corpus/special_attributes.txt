@@ -1,0 +1,99 @@
+================================================================================
+Component special attribute :let
+================================================================================
+
+<.form :let={f}>
+    <%= text_input f, :text %>
+    <%= submit "Submit" %>
+</.form>
+
+--------------------------------------------------------------------------------
+
+(fragment
+  (component
+    (start_component
+      (component_name
+        (function))
+      (special_attribute
+        (special_attribute_name)
+        (expression
+          (expression_value))))
+    (directive
+      (expression_value))
+    (directive
+      (expression_value))
+    (end_component
+      (component_name
+        (function)))))
+
+================================================================================
+Slot special attribute :let
+================================================================================
+
+<.func>
+  <:slot :let={foo}>
+    <%= foo %>
+  </:slot>
+</.func>
+
+--------------------------------------------------------------------------------
+
+(fragment
+  (component
+    (start_component
+      (component_name
+        (function)))
+    (slot
+      (start_slot
+        (slot_name)
+        (special_attribute
+          (special_attribute_name)
+          (expression
+            (expression_value))))
+      (directive
+        (expression_value))
+      (end_slot
+        (slot_name)))
+    (end_component
+      (component_name
+        (function)))))
+
+================================================================================
+Self-closing tag special attribute :for
+================================================================================
+
+<div :for={item <- @items} />
+
+--------------------------------------------------------------------------------
+
+(fragment
+  (tag
+    (self_closing_tag
+      (tag_name)
+      (special_attribute
+        (special_attribute_name)
+        (expression
+          (expression_value))))))
+
+================================================================================
+Tag special attribute :stream
+================================================================================
+
+<div :stream={item <- @items}>
+  <%= item %>
+</div>
+
+--------------------------------------------------------------------------------
+
+(fragment
+  (tag
+    (start_tag
+      (tag_name)
+      (special_attribute
+        (special_attribute_name)
+        (expression
+          (expression_value))))
+    (directive
+      (expression_value))
+    (end_tag
+      (tag_name))))
