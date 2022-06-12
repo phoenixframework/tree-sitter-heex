@@ -82,3 +82,25 @@ Slots must be a child of a Component
       (attribute_name))
     (end_tag
       (tag_name))))
+
+================================================================================
+Self-closing slot does not error
+================================================================================
+
+<.modal>
+  <:header />
+</.modal>
+
+--------------------------------------------------------------------------------
+
+(fragment
+  (component
+    (start_component
+      (component_name
+        (function)))
+    (slot
+      (self_closing_slot
+        (slot_name)))
+    (end_component
+      (component_name
+        (function)))))
