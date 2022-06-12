@@ -269,6 +269,29 @@
     }
   },
   {
+    "type": "self_closing_slot",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "attribute",
+          "named": true
+        },
+        {
+          "type": "expression",
+          "named": true
+        },
+        {
+          "type": "slot_name",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "self_closing_tag",
     "named": true,
     "fields": {},
@@ -317,6 +340,10 @@
         },
         {
           "type": "end_slot",
+          "named": true
+        },
+        {
+          "type": "self_closing_slot",
           "named": true
         },
         {
