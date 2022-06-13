@@ -163,7 +163,7 @@ module.exports = grammar({
 
     tag_name: ($) => /[a-z]+[^<>{}!"'/=\s]*/,
 
-    attribute_name: ($) => token(prec(-1, /[^:<>{}"'/=\s]+/)),
+    attribute_name: ($) => token(prec(-1, /[^:<>{}"'/=\s][^<>{}"'/=\s]+/)),
 
     text: ($) => /[^<>{}\s]([^<>{}]*[^<>{}\s])?/,
   },

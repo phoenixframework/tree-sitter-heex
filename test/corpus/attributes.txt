@@ -135,3 +135,25 @@ Alpine Directive
         (tag_name)))
     (end_tag
       (tag_name))))
+
+================================================================================
+Alpine Attribute
+================================================================================
+
+<button x-on:click="open = ! open">
+  Toggle
+</button>
+
+--------------------------------------------------------------------------------
+
+(fragment
+  (tag
+    (start_tag
+      (tag_name)
+      (attribute
+        (attribute_name)
+        (quoted_attribute_value
+          (attribute_value))))
+    (text)
+    (end_tag
+      (tag_name))))
