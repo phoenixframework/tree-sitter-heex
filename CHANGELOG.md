@@ -1,5 +1,23 @@
 # Changelog
 
+# 0.5.0
+- Add new nodes to support HEEx special attributes
+- Support self-closing HEEx slots
+- Support hyphens in HTML tag names
+- Update README
+- Add prettier code formatter
+
+# 0.4.1
+- Add package.json metadata required to integrate with tree-sitter-elixir
+- Update tree-sitter-cli and regenerate parser
+
+# 0.4.0
+
+- Add new nodes to support HEEx slots
+- Fix: allow for empty comments
+- Update highlights to match those in nvim-treesitter
+- Update README
+
 # 0.3.1
 
 - Upgrade to tree-sitter-cli 0.20.4
