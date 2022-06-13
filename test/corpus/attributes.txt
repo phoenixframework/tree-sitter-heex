@@ -91,6 +91,25 @@ Expression Attribute
           (expression_value))))))
 
 ================================================================================
+Single-character Attribute
+================================================================================
+
+<Root.render a="a" />
+
+--------------------------------------------------------------------------------
+
+(fragment
+  (component
+    (self_closing_component
+      (component_name
+        (module)
+        (function))
+      (attribute
+        (attribute_name)
+        (quoted_attribute_value
+          (attribute_value))))))
+
+================================================================================
 Alpine Directive
 ================================================================================
 
