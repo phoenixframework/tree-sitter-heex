@@ -97,3 +97,43 @@ Tag special attribute :stream
       (expression_value))
     (end_tag
       (tag_name))))
+
+================================================================================
+Tag special attribute :if
+================================================================================
+
+<div :if={@item}>
+  <%= @item %>
+</div>
+
+--------------------------------------------------------------------------------
+
+(fragment
+  (tag
+    (start_tag
+      (tag_name)
+      (special_attribute
+        (special_attribute_name)
+        (expression
+          (expression_value))))
+    (directive
+      (expression_value))
+    (end_tag
+      (tag_name))))
+
+================================================================================
+Self-closing tag special attribute :if
+================================================================================
+
+<div :if={@item} />
+
+--------------------------------------------------------------------------------
+
+(fragment
+  (tag
+    (self_closing_tag
+      (tag_name)
+      (special_attribute
+        (special_attribute_name)
+        (expression
+          (expression_value))))))

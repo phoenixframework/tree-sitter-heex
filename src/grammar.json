@@ -533,6 +533,10 @@
         {
           "type": "STRING",
           "value": ":stream"
+        },
+        {
+          "type": "STRING",
+          "value": ":if"
         }
       ]
     },

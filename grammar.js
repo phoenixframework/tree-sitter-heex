@@ -100,7 +100,7 @@ module.exports = grammar({
 
     special_attribute: ($) => seq($.special_attribute_name, "=", $.expression),
 
-    special_attribute_name: ($) => choice(":let", ":for", ":stream"),
+    special_attribute_name: ($) => choice(":let", ":for", ":stream", ":if"),
 
     attribute: ($) =>
       seq(

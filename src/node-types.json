@@ -558,6 +558,10 @@
     "named": false
   },
   {
+    "type": ":if",
+    "named": false
+  },
+  {
     "type": ":let",
     "named": false
   },
