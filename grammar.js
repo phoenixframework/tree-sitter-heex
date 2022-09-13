@@ -65,7 +65,7 @@ module.exports = grammar({
       seq(
         "<",
         $.component_name,
-        repeat(choice($.attribute, $.expression)),
+        repeat(choice($.attribute, $.expression, $.special_attribute)),
         "/>"
       ),
 
@@ -83,7 +83,7 @@ module.exports = grammar({
       seq(
         "<:",
         alias($.tag_name, $.slot_name),
-        repeat(choice($.attribute, $.expression)),
+        repeat(choice($.attribute, $.expression, $.special_attribute)),
         "/>"
       ),
 

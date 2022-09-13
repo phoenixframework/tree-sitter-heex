@@ -137,3 +137,104 @@ Self-closing tag special attribute :if
         (special_attribute_name)
         (expression
           (expression_value))))))
+
+================================================================================
+Component special attribute :if
+================================================================================
+
+<.component :if={@expression}>
+  <%= @expression %>
+</.component>
+
+--------------------------------------------------------------------------------
+
+(fragment
+  (component
+    (start_component
+      (component_name
+        (function))
+      (special_attribute
+        (special_attribute_name)
+        (expression
+          (expression_value))))
+    (directive
+      (expression_value))
+    (end_component
+      (component_name
+        (function)))))
+
+================================================================================
+Self-closing component special attribute :if
+================================================================================
+
+<.component :if={@expression} />
+
+--------------------------------------------------------------------------------
+
+(fragment
+  (component
+    (self_closing_component
+      (component_name
+        (function))
+      (special_attribute
+        (special_attribute_name)
+        (expression
+          (expression_value))))))
+
+================================================================================
+Slot special attribute :if
+================================================================================
+
+<.component>
+  <:slot :if={@expression}>
+    <%= @expression %>
+  </:slot>
+</.component>
+
+--------------------------------------------------------------------------------
+
+(fragment
+  (component
+    (start_component
+      (component_name
+        (function)))
+    (slot
+      (start_slot
+        (slot_name)
+        (special_attribute
+          (special_attribute_name)
+          (expression
+            (expression_value))))
+      (directive
+        (expression_value))
+      (end_slot
+        (slot_name)))
+    (end_component
+      (component_name
+        (function)))))
+
+================================================================================
+Self-closing slot special attribute :if
+================================================================================
+
+<.component>
+  <:slot :if={@expression} />
+</.component>
+
+--------------------------------------------------------------------------------
+
+(fragment
+  (component
+    (start_component
+      (component_name
+        (function)))
+    (slot
+      (self_closing_slot
+        (slot_name)
+        (special_attribute
+          (special_attribute_name)
+          (expression
+            (expression_value)))))
+    (end_component
+      (component_name
+        (function)))))

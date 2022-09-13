@@ -264,6 +264,10 @@
         {
           "type": "expression",
           "named": true
+        },
+        {
+          "type": "special_attribute",
+          "named": true
         }
       ]
     }
@@ -286,6 +290,10 @@
         },
         {
           "type": "slot_name",
+          "named": true
+        },
+        {
+          "type": "special_attribute",
           "named": true
         }
       ]

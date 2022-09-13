@@ -322,6 +322,10 @@
               {
                 "type": "SYMBOL",
                 "name": "expression"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "special_attribute"
               }
             ]
           }
@@ -424,6 +428,10 @@
               {
                 "type": "SYMBOL",
                 "name": "expression"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "special_attribute"
               }
             ]
           }
