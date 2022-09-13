@@ -1,7 +1,7 @@
 # Changelog
 
 ## Unreleased
-- Support `:if` HEEx special attributes on tags
+- Support `:if` HEEx special attributes on tags, components, and slots
 
 ## 0.5.0
 - Add new nodes to support HEEx special attributes `:let`, `:for`, and `:stream`
