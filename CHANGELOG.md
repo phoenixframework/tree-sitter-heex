@@ -1,7 +1,10 @@
 # Changelog
 
-## Unreleased
+## 0.6.0
 - Support `:if` HEEx special attributes on tags, components, and slots
+- Upgrade to tree-sitter-cli 0.20.7
+- Upgrade to nan 2.16.0
+- Upgrade to prettier 2.7.1
 
 ## 0.5.0
 - Add new nodes to support HEEx special attributes `:let`, `:for`, and `:stream`
