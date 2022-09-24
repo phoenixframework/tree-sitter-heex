@@ -1,7 +1,7 @@
 {
   "name": "tree-sitter-heex",
-  "version": "0.5.0",
-  "description": "Tree-sitter grammar for HEEX files (heex)",
+  "version": "0.6.0",
+  "description": "Tree-sitter grammar for HEEx files",
   "main": "bindings/node",
   "keywords": [
     "elixir",
@@ -21,16 +21,14 @@
   "author": "Clay",
   "license": "MIT",
   "devDependencies": {
-    "nan": "^2.15.0",
-    "prettier": "2.6.2",
-    "tree-sitter-cli": "^0.20.6"
+    "nan": "^2.16.0",
+    "prettier": "^2.7.1",
+    "tree-sitter-cli": "^0.20.7"
   },
   "tree-sitter": [
     {
       "scope": "source.heex",
-      "file-types": [
-        "heex"
-      ],
+      "file-types": ["heex"],
       "injection-regex": "^(heex)$"
     }
   ]
