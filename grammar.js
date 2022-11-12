@@ -10,7 +10,15 @@ module.exports = grammar({
     fragment: ($) => repeat($._node),
 
     _node: ($) =>
-      choice($.doctype, $.tag, $.component, $.text, $.comment, $.directive),
+      choice(
+        $.doctype,
+        $.tag,
+        $.component,
+        $.text,
+        $.comment,
+        $.directive_group,
+        $.directive
+      ),
 
     doctype: ($) => seq("<!", "DOCTYPE", "html", ">"),
 
@@ -121,13 +129,20 @@ module.exports = grammar({
         seq('"', optional(alias(/[^"]+/, $.attribute_value)), '"')
       ),
 
-    directive: ($) =>
+    directive_group: ($) =>
       seq(
-        choice("<%", "<%=", "<%%", "<%%="),
-        prec.left(
-          seq(choice($.partial_expression_value, $.expression_value), "%>")
-        )
+        alias($._partial_directive, $.directive),
+        repeat(
+          prec.left(choice(alias($._partial_directive, $.directive), $._node))
+        ),
+        alias($._ending_directive, $.directive)
       ),
+
+    _ending_directive: ($) => directive($.ending_expression_value),
+
+    _partial_directive: ($) => directive($.partial_expression_value),
+
+    directive: ($) => directive($.expression_value),
 
     comment: ($) => choice($._html_comment, $._bang_comment, $._hash_comment),
 
@@ -140,16 +155,13 @@ module.exports = grammar({
 
     expression_value: ($) => repeat1($._code),
 
+    ending_expression_value: ($) => seq(/end[\)\]\}]*/, repeat($._code)),
+
     partial_expression_value: ($) =>
       seq(
-        choice(
-          seq(/end[\)\]\}]*/, repeat($._code)),
-          seq(
-            repeat($._code),
-            choice("do", "->"),
-            optional(seq("#", repeat($._code)))
-          )
-        )
+        repeat($._code),
+        choice("do", "->"),
+        optional(seq("#", repeat($._code)))
       ),
 
     component_name: ($) =>
@@ -168,3 +180,14 @@ module.exports = grammar({
     text: ($) => /[^<>{}\s]([^<>{}]*[^<>{}\s])?/,
   },
 });
+
+function directive(expression) {
+  return seq(
+    choice("<%", "<%=", "<%%", "<%%="),
+    prec.left(seq(expression, "%>"))
+  );
+}
+
+function sep1(rule, separator) {
+  return seq(rule, repeat(seq(separator, rule)));
+}

@@ -9,12 +9,13 @@ If expression spread between multiple directives
 --------------------------------------------------------------------------------
 
 (fragment
-  (directive
-    (partial_expression_value))
-  (directive
-    (expression_value))
-  (directive
-    (partial_expression_value)))
+  (directive_group
+    (directive
+      (partial_expression_value))
+    (directive
+      (expression_value))
+    (directive
+      (ending_expression_value))))
 
 ================================================================================
 Case expression spread between multiple directives
@@ -28,15 +29,38 @@ Case expression spread between multiple directives
 --------------------------------------------------------------------------------
 
 (fragment
+  (directive_group
+    (directive
+      (partial_expression_value))
+    (directive
+      (partial_expression_value))
+    (text)
+    (directive
+      (expression_value))
+    (directive
+      (partial_expression_value))
+    (text)
+    (directive
+      (ending_expression_value))))
+
+================================================================================
+Nested if expressions
+================================================================================
+
+<%= if true do %>
+  <%= if true do %>
+  <% end %>
+<% end %>
+
+--------------------------------------------------------------------------------
+
+(fragment
+  (directive_group
+    (directive
+      (partial_expression_value))
+    (directive
+      (partial_expression_value))
+    (directive
+      (ending_expression_value)))
   (directive
-    (partial_expression_value))
-  (directive
-    (partial_expression_value))
-  (text)
-  (directive
-    (expression_value))
-  (directive
-    (partial_expression_value))
-  (text)
-  (directive
-    (partial_expression_value)))
+    (expression_value)))
