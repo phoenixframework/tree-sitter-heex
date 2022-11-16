@@ -14,7 +14,7 @@ If expression spread between multiple directives
   (directive
     (expression_value))
   (directive
-    (partial_expression_value)))
+    (ending_expression_value)))
 
 ================================================================================
 Case expression spread between multiple directives
@@ -39,4 +39,4 @@ Case expression spread between multiple directives
     (partial_expression_value))
   (text)
   (directive
-    (partial_expression_value)))
+    (ending_expression_value)))

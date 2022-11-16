@@ -125,7 +125,14 @@ module.exports = grammar({
       seq(
         choice("<%", "<%=", "<%%", "<%%="),
         prec.left(
-          seq(choice($.partial_expression_value, $.expression_value), "%>")
+          seq(
+            choice(
+              $.partial_expression_value,
+              $.ending_expression_value,
+              $.expression_value
+            ),
+            "%>"
+          )
         )
       ),
 
@@ -142,15 +149,12 @@ module.exports = grammar({
 
     partial_expression_value: ($) =>
       seq(
-        choice(
-          seq(/end[\)\]\}]*/, repeat($._code)),
-          seq(
-            repeat($._code),
-            choice("do", "->"),
-            optional(seq("#", repeat($._code)))
-          )
-        )
+        repeat($._code),
+        choice("do", "->"),
+        optional(seq("#", repeat($._code)))
       ),
+
+    ending_expression_value: ($) => seq(/end[\)\]\}]*/, repeat($._code)),
 
     component_name: ($) =>
       choice(seq(optional($.module), seq(".", $.function)), $.module),
