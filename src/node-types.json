@@ -110,6 +110,10 @@
       "required": true,
       "types": [
         {
+          "type": "ending_expression_value",
+          "named": true
+        },
+        {
           "type": "expression_value",
           "named": true
         },
@@ -169,6 +173,11 @@
         }
       ]
     }
+  },
+  {
+    "type": "ending_expression_value",
+    "named": true,
+    "fields": {}
   },
   {
     "type": "expression",
