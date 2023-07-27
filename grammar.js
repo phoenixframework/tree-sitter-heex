@@ -1,11 +1,6 @@
 module.exports = grammar({
   name: "heex",
 
-  conflicts: ($) => [
-    [$.start_component, $.self_closing_component],
-    [$.start_tag, $.self_closing_tag],
-  ],
-
   rules: {
     fragment: ($) => repeat($._node),
 

@@ -969,16 +969,7 @@
       "value": "\\s"
     }
   ],
-  "conflicts": [
-    [
-      "start_component",
-      "self_closing_component"
-    ],
-    [
-      "start_tag",
-      "self_closing_tag"
-    ]
-  ],
+  "conflicts": [],
   "precedences": [],
   "externals": [],
   "inline": [],
