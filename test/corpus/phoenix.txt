@@ -10,7 +10,7 @@ root.html.heex
     <%= csrf_meta_tag() %>
     <%= live_title_tag assigns[:page_title] || "HeexApp", suffix: " · Phoenix Framework" %>
     <link phx-track-static rel="stylesheet" href={Routes.static_path(@conn, "/assets/app.css")}/>
-    <script defer phx-track-static type="text/javascript" src={Routes.static_path(@conn, "/assets/app.js")}></script>
+    <script defer phx-track-static type="text/javascript" src={Routes.static_path(@conn, "/assets/app.js")}/>
   </head>
   <body>
     <header>
@@ -90,9 +90,8 @@ root.html.heex
             (attribute_name)
             (expression
               (expression_value)))))
-      (tag
-        (start_tag
-          (tag_name)
+      (script
+        (self_closing_script
           (attribute
             (attribute_name))
           (attribute
@@ -104,9 +103,7 @@ root.html.heex
           (attribute
             (attribute_name)
             (expression
-              (expression_value))))
-        (end_tag
-          (tag_name)))
+              (expression_value)))))
       (end_tag
         (tag_name)))
     (tag
