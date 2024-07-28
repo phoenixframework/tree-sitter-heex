@@ -1,0 +1,61 @@
+================================================================================
+Embedded JavaScript Script
+================================================================================
+
+<script type="text/javascript">
+	console.log("hello, world");
+</script>
+
+--------------------------------------------------------------------------------
+
+(fragment
+  (script
+    (start_script
+      (attribute
+        (attribute_name)
+        (quoted_attribute_value
+          (attribute_value))))
+    (raw_text)
+    (end_script)))
+
+================================================================================
+Embedded JSON Script
+================================================================================
+
+<script type="application/json">
+  {
+    "message": "hello, world"
+  }
+</script>
+
+--------------------------------------------------------------------------------
+
+(fragment
+  (script
+    (start_script
+      (attribute
+        (attribute_name)
+        (quoted_attribute_value
+          (attribute_value))))
+    (raw_text)
+    (end_script)))
+
+================================================================================
+Self-closing scripts
+================================================================================
+
+<script type="text/javascript" src="https://example.com/hello-world.js" />
+
+--------------------------------------------------------------------------------
+
+(fragment
+  (script
+    (self_closing_script
+      (attribute
+        (attribute_name)
+        (quoted_attribute_value
+          (attribute_value)))
+      (attribute
+        (attribute_name)
+        (quoted_attribute_value
+          (attribute_value))))))

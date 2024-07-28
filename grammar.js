@@ -5,7 +5,15 @@ module.exports = grammar({
     fragment: ($) => repeat($._node),
 
     _node: ($) =>
-      choice($.doctype, $.tag, $.component, $.text, $.comment, $.directive),
+      choice(
+        $.doctype,
+        $.tag,
+        $.component,
+        $.script,
+        $.text,
+        $.comment,
+        $.directive
+      ),
 
     doctype: ($) => seq("<!", "DOCTYPE", "html", ">"),
 
@@ -20,6 +28,30 @@ module.exports = grammar({
           $.end_component
         ),
         $.self_closing_component
+      ),
+
+    script: ($) =>
+      choice(
+        seq($.start_script, $.raw_text, $.end_script),
+        $.self_closing_script
+      ),
+
+    start_script: ($) =>
+      seq(
+        "<",
+        "script",
+        repeat(choice($.attribute, $.expression, $.special_attribute)),
+        ">"
+      ),
+
+    end_script: ($) => seq("</", "script", ">"),
+
+    self_closing_script: ($) =>
+      seq(
+        "<",
+        "script",
+        repeat(choice($.attribute, $.expression, $.special_attribute)),
+        "/>"
       ),
 
     slot: ($) =>
@@ -163,6 +195,9 @@ module.exports = grammar({
     tag_name: ($) => /[a-z]+[^<>{}!"'/=\s]*/,
 
     attribute_name: ($) => token(prec(-1, /[^:<>{}"'/=\s][^<>{}"'/=\s]*/)),
+
+    // TODO: figure out why {} are treated as (ERROR (text)), see current failing test
+    raw_text: ($) => /[^\s](.*[^\s])?/,
 
     text: ($) => /[^<>{}\s]([^<>{}]*[^<>{}\s])?/,
   },
