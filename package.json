@@ -28,8 +28,8 @@
   "tree-sitter": [
     {
       "scope": "source.heex",
-      "file-types": ["heex"],
-      "injection-regex": "^(heex)$"
+      "file-types": ["heex", "neex"],
+      "injection-regex": "^(heex|neex)$"
     }
   ]
 }
