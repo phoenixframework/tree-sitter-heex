@@ -60,6 +60,10 @@
           "named": true
         },
         {
+          "type": "script",
+          "named": true
+        },
+        {
           "type": "self_closing_component",
           "named": true
         },
@@ -145,6 +149,11 @@
     }
   },
   {
+    "type": "end_script",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "end_slot",
     "named": true,
     "fields": {},
@@ -224,6 +233,10 @@
           "named": true
         },
         {
+          "type": "script",
+          "named": true
+        },
+        {
           "type": "tag",
           "named": true
         },
@@ -255,6 +268,33 @@
     }
   },
   {
+    "type": "script",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "end_script",
+          "named": true
+        },
+        {
+          "type": "raw_text",
+          "named": true
+        },
+        {
+          "type": "self_closing_script",
+          "named": true
+        },
+        {
+          "type": "start_script",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "self_closing_component",
     "named": true,
     "fields": {},
@@ -268,6 +308,29 @@
         },
         {
           "type": "component_name",
+          "named": true
+        },
+        {
+          "type": "expression",
+          "named": true
+        },
+        {
+          "type": "special_attribute",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "self_closing_script",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "attribute",
           "named": true
         },
         {
@@ -364,6 +427,10 @@
           "named": true
         },
         {
+          "type": "script",
+          "named": true
+        },
+        {
           "type": "self_closing_slot",
           "named": true
         },
@@ -420,6 +487,29 @@
         },
         {
           "type": "component_name",
+          "named": true
+        },
+        {
+          "type": "expression",
+          "named": true
+        },
+        {
+          "type": "special_attribute",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "start_script",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "attribute",
           "named": true
         },
         {
@@ -513,6 +603,10 @@
         },
         {
           "type": "end_tag",
+          "named": true
+        },
+        {
+          "type": "script",
           "named": true
         },
         {
@@ -669,6 +763,14 @@
   {
     "type": "module",
     "named": true
+  },
+  {
+    "type": "raw_text",
+    "named": true
+  },
+  {
+    "type": "script",
+    "named": false
   },
   {
     "type": "slot_name",
