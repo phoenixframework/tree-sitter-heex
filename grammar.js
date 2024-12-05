@@ -118,7 +118,7 @@ module.exports = grammar({
 
     directive: ($) =>
       seq(
-        choice("<%", "<%=", "<%%", "<%%="),
+        choice("<%", "<%=", "<%%", "<%%=", "{"),
         prec.left(
           seq(
             choice(
@@ -126,7 +126,7 @@ module.exports = grammar({
               $.ending_expression_value,
               $.expression_value
             ),
-            "%>"
+            choice("%>", "}")
           )
         )
       ),

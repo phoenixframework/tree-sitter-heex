@@ -40,3 +40,21 @@ Case expression spread between multiple directives
   (text)
   (directive
     (ending_expression_value)))
+
+================================================================================
+Curly braces as directive
+================================================================================
+
+<div>
+  { @message }
+</div>
+--------------------------------------------------------------------------------
+
+(fragment
+  (tag
+    (start_tag
+      (tag_name))
+    (directive
+      (expression_value))
+    (end_tag
+      (tag_name))))
