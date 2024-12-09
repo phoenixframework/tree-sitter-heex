@@ -5,7 +5,15 @@ module.exports = grammar({
     fragment: ($) => repeat($._node),
 
     _node: ($) =>
-      choice($.doctype, $.tag, $.component, $.text, $.comment, $.directive),
+      choice(
+        $.doctype,
+        $.tag,
+        $.component,
+        $.text,
+        $.comment,
+        $.directive,
+        $.expression
+      ),
 
     doctype: ($) => seq("<!", "DOCTYPE", "html", ">"),
 
@@ -117,21 +125,18 @@ module.exports = grammar({
       ),
 
     directive: ($) =>
-      choice(
-        seq(
-          choice("<%", "<%=", "<%%", "<%%="),
-          prec.left(
-            seq(
-              choice(
-                $.partial_expression_value,
-                $.ending_expression_value,
-                $.expression_value
-              ),
-              choice("%>")
-            )
+      seq(
+        choice("<%", "<%=", "<%%", "<%%="),
+        prec.left(
+          seq(
+            choice(
+              $.partial_expression_value,
+              $.ending_expression_value,
+              $.expression_value
+            ),
+            "%>"
           )
-        ),
-        alias($.expression, "expression")
+        )
       ),
 
     comment: ($) => choice($._html_comment, $._bang_comment, $._hash_comment),
