@@ -117,16 +117,31 @@ module.exports = grammar({
       ),
 
     directive: ($) =>
-      seq(
-        choice("<%", "<%=", "<%%", "<%%=", "{"),
-        prec.left(
-          seq(
-            choice(
-              $.partial_expression_value,
-              $.ending_expression_value,
-              $.expression_value
-            ),
-            choice("%>", "}")
+      choice(
+        seq(
+          choice("<%", "<%=", "<%%", "<%%="),
+          prec.left(
+            seq(
+              choice(
+                $.partial_expression_value,
+                $.ending_expression_value,
+                $.expression_value
+              ),
+              choice("%>")
+            )
+          )
+        ),
+        seq(
+          choice("{"),
+          prec.left(
+            seq(
+              choice(
+                $.partial_expression_value,
+                $.ending_expression_value,
+                $.expression_value
+              ),
+              choice("}")
+            )
           )
         )
       ),
