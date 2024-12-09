@@ -67,3 +67,28 @@ Interpolation
         (attribute_name)
         (expression
           (expression_value))))))
+
+================================================================================
+Interpolation inside body 
+================================================================================
+
+<div>
+  { @message }
+  {@message}
+  {"#{1}"}
+</div>
+
+--------------------------------------------------------------------------------
+
+(fragment
+  (tag
+    (start_tag
+      (tag_name))
+    (expression
+      (expression_value))
+    (expression
+      (expression_value))
+    (expression
+      (expression_value))
+    (end_tag
+      (tag_name))))

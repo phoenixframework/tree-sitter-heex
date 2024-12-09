@@ -60,6 +60,10 @@
           "named": true
         },
         {
+          "type": "expression",
+          "named": true
+        },
+        {
           "type": "self_closing_component",
           "named": true
         },
@@ -224,6 +228,10 @@
           "named": true
         },
         {
+          "type": "expression",
+          "named": true
+        },
+        {
           "type": "tag",
           "named": true
         },
@@ -361,6 +369,10 @@
         },
         {
           "type": "end_slot",
+          "named": true
+        },
+        {
+          "type": "expression",
           "named": true
         },
         {
@@ -513,6 +525,10 @@
         },
         {
           "type": "end_tag",
+          "named": true
+        },
+        {
+          "type": "expression",
           "named": true
         },
         {
