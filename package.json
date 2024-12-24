@@ -1,6 +1,6 @@
 {
   "name": "tree-sitter-heex",
-  "version": "0.6.0",
+  "version": "0.7.0",
   "description": "Tree-sitter grammar for HEEx files",
   "main": "bindings/node",
   "keywords": [
