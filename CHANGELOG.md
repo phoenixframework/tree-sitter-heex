@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.7.0
+- Support HEEx expressions `{...}` within the body of a tag, thanks @kevinschweikert and @jonatanklosko!
+- Support NEEx template highlighting, thanks @bcardarella!
+- Separate ending expressions from beginning/middle expressions, thanks @the-mikedavis and @dvic!
+- Enable query constants for Rust projects, thanks @knoebber!
+- Documentation fixes, thanks @the-mikedavis!
+- Remove unnecessary conflicts from grammar, thanks @amaanq!
+- Dependency updates, thanks @SomeoneToIgnore!
+- Add MIT license
+
 ## 0.6.0
 - Support `:if` HEEx special attributes on tags, components, and slots
 - Upgrade to tree-sitter-cli 0.20.7
