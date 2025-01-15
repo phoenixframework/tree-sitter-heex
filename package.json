@@ -16,20 +16,21 @@
     "update_test": "npx tree-sitter generate && npx tree-sitter test -u",
     "playground": "npx tree-sitter build-wasm && npx tree-sitter playground",
     "format": "prettier --trailing-comma es5 --write grammar.js",
-    "check_format": "prettier --trailing-comma es5 --check grammar.js"
+    "check_format": "prettier --trailing-comma es5 --check grammar.js",
+    "install": "node-gyp-build"
   },
   "author": "Clay",
   "license": "MIT",
-  "devDependencies": {
-    "nan": "^2.16.0",
-    "prettier": "^2.7.1",
-    "tree-sitter-cli": "^0.20.7"
+  "dependencies": {
+    "node-addon-api": "^7.1.0",
+    "node-gyp-build": "^4.8.0"
   },
-  "tree-sitter": [
-    {
-      "scope": "source.heex",
-      "file-types": ["heex", "neex"],
-      "injection-regex": "^(heex|neex)$"
-    }
-  ]
+  "devDependencies": {
+    "prettier": "^2.7.1",
+    "tree-sitter-cli": "^0.24.0",
+    "prebuildify": "^6.0.0"
+  },
+  "peerDependencies": {
+    "tree-sitter": "^0.21.0"
+  }
 }
