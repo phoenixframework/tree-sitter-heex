@@ -1,4 +1,5 @@
 {
+  "$schema": "https://tree-sitter.github.io/tree-sitter/assets/schemas/grammar.schema.json",
   "name": "heex",
   "rules": {
     "fragment": {
@@ -712,13 +713,8 @@
                 ]
               },
               {
-                "type": "CHOICE",
-                "members": [
-                  {
-                    "type": "STRING",
-                    "value": "%>"
-                  }
-                ]
+                "type": "STRING",
+                "value": "%>"
               }
             ]
           }
@@ -984,4 +980,3 @@
   "inline": [],
   "supertypes": []
 }
-

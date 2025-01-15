@@ -1,0 +1,37 @@
+{
+  "grammars": [
+    {
+      "name": "heex",
+      "camelcase": "Heex",
+      "scope": "source.heex",
+      "path": ".",
+      "file-types": [
+        "heex",
+        "neex"
+      ],
+      "highlights": "queries/highlights.scm",
+      "injection-regex": "^(heex|neex)$"
+    }
+  ],
+  "metadata": {
+    "version": "0.7.0",
+    "license": "MIT",
+    "description": "Tree-sitter grammar for HEEx files",
+    "authors": [
+      {
+        "name": "Clay"
+      }
+    ],
+    "links": {
+      "repository": "https://github.com/phoenixframework/tree-sitter-heex"
+    }
+  },
+  "bindings": {
+    "c": true,
+    "go": true,
+    "node": true,
+    "python": true,
+    "rust": true,
+    "swift": true
+  }
+}
