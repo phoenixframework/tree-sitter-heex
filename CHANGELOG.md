@@ -1,5 +1,8 @@
 # Changelog
 
+## 0.7.1
+- Update tree-sitter version used to generate the grammar and bindings to v0.24.7, thanks @jonatanklosko!
+
 ## 0.7.0
 - Support HEEx expressions `{...}` within the body of a tag, thanks @kevinschweikert and @jonatanklosko!
 - Support NEEx template highlighting, thanks @bcardarella!
