@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.13)
 
 project(tree-sitter-heex
-        VERSION "0.7.0"
+        VERSION "0.8.0"
         DESCRIPTION "Tree-sitter grammar for HEEx files"
         HOMEPAGE_URL "https://github.com/phoenixframework/tree-sitter-heex"
         LANGUAGES C)
