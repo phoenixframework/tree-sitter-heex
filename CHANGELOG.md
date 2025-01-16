@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.8.0
+
+- Update tree-sitter requirement. The Rust crate now depends on tree-sitter-language
+
 ## 0.7.0
 - Support HEEx expressions `{...}` within the body of a tag, thanks @kevinschweikert and @jonatanklosko!
 - Support NEEx template highlighting, thanks @bcardarella!
