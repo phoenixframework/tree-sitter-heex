@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.8.1
+
+- Fix edge cases where expression includes delimiters
+
 ## 0.8.0
 
 - Update tree-sitter requirement. The Rust crate now depends on tree-sitter-language
