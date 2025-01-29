@@ -684,8 +684,16 @@
     "named": false
   },
   {
+    "type": "left",
+    "named": false
+  },
+  {
     "type": "module",
     "named": true
+  },
+  {
+    "type": "right",
+    "named": false
   },
   {
     "type": "slot_name",
