@@ -99,7 +99,16 @@ module.exports = grammar({
       ),
 
     _expression_value: ($) =>
-      choice(/[^{}]+/, seq("{", optional($._expression_value), "}")),
+      // Note that we alias "{" and "}", so they are not targetted by
+      // delimiter highlight queries.
+      choice(
+        /[^{}]+/,
+        seq(
+          alias("{", "left"),
+          repeat($._expression_value),
+          alias("}", "right")
+        )
+      ),
 
     special_attribute: ($) => seq($.special_attribute_name, "=", $.expression),
 
