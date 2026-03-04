@@ -9,10 +9,11 @@ module.exports = grammar({
         $.doctype,
         $.tag,
         $.component,
+        $.entity,
         $.text,
         $.comment,
         $.directive,
-        $.expression
+        $.expression,
       ),
 
     doctype: ($) => seq("<!", "DOCTYPE", "html", ">"),
@@ -25,15 +26,15 @@ module.exports = grammar({
         seq(
           $.start_component,
           repeat(choice($._node, $.slot)),
-          $.end_component
+          $.end_component,
         ),
-        $.self_closing_component
+        $.self_closing_component,
       ),
 
     slot: ($) =>
       choice(
         seq($.start_slot, repeat($._node), $.end_slot),
-        $.self_closing_slot
+        $.self_closing_slot,
       ),
 
     start_tag: ($) =>
@@ -41,7 +42,7 @@ module.exports = grammar({
         "<",
         $.tag_name,
         repeat(choice($.attribute, $.expression, $.special_attribute)),
-        ">"
+        ">",
       ),
 
     end_tag: ($) => seq("</", $.tag_name, ">"),
@@ -51,7 +52,7 @@ module.exports = grammar({
         "<",
         $.tag_name,
         repeat(choice($.attribute, $.expression, $.special_attribute)),
-        "/>"
+        "/>",
       ),
 
     start_component: ($) =>
@@ -59,7 +60,7 @@ module.exports = grammar({
         "<",
         $.component_name,
         repeat(choice($.attribute, $.expression, $.special_attribute)),
-        ">"
+        ">",
       ),
 
     end_component: ($) => seq("</", $.component_name, ">"),
@@ -69,7 +70,7 @@ module.exports = grammar({
         "<",
         $.component_name,
         repeat(choice($.attribute, $.expression, $.special_attribute)),
-        "/>"
+        "/>",
       ),
 
     start_slot: ($) =>
@@ -77,7 +78,7 @@ module.exports = grammar({
         "<:",
         alias($.tag_name, $.slot_name),
         repeat(choice($.attribute, $.expression, $.special_attribute)),
-        ">"
+        ">",
       ),
 
     end_slot: ($) => seq("</:", alias($.tag_name, $.slot_name), ">"),
@@ -87,15 +88,15 @@ module.exports = grammar({
         "<:",
         alias($.tag_name, $.slot_name),
         repeat(choice($.attribute, $.expression, $.special_attribute)),
-        "/>"
+        "/>",
       ),
 
     expression: ($) =>
       seq(
         "{",
         prec.left(
-          seq(alias(repeat($._expression_value), $.expression_value), "}")
-        )
+          seq(alias(repeat($._expression_value), $.expression_value), "}"),
+        ),
       ),
 
     _expression_value: ($) =>
@@ -106,13 +107,14 @@ module.exports = grammar({
         seq(
           alias("{", "left"),
           repeat($._expression_value),
-          alias("}", "right")
-        )
+          alias("}", "right"),
+        ),
       ),
 
     special_attribute: ($) => seq($.special_attribute_name, "=", $.expression),
 
-    special_attribute_name: ($) => choice(":let", ":for", ":stream", ":if"),
+    special_attribute_name: ($) =>
+      choice(":let", ":for", ":key", ":stream", ":if"),
 
     attribute: ($) =>
       seq(
@@ -120,9 +122,9 @@ module.exports = grammar({
         optional(
           seq(
             "=",
-            choice($.quoted_attribute_value, $.attribute_value, $.expression)
-          )
-        )
+            choice($.quoted_attribute_value, $.attribute_value, $.expression),
+          ),
+        ),
       ),
 
     attribute_value: ($) => /[^<>{}"'=\s]+/,
@@ -130,7 +132,7 @@ module.exports = grammar({
     quoted_attribute_value: ($) =>
       choice(
         seq("'", optional(alias(/[^']+/, $.attribute_value)), "'"),
-        seq('"', optional(alias(/[^"]+/, $.attribute_value)), '"')
+        seq('"', optional(alias(/[^"]+/, $.attribute_value)), '"'),
       ),
 
     directive: ($) =>
@@ -141,11 +143,11 @@ module.exports = grammar({
             choice(
               $.partial_expression_value,
               $.ending_expression_value,
-              $.expression_value
+              $.expression_value,
             ),
-            "%>"
-          )
-        )
+            "%>",
+          ),
+        ),
       ),
 
     comment: ($) => choice($._html_comment, $._bang_comment, $._hash_comment),
@@ -162,8 +164,8 @@ module.exports = grammar({
     partial_expression_value: ($) =>
       seq(
         repeat($._code),
-        choice("do", "->"),
-        optional(seq("#", repeat($._code)))
+        choice("do", "catch", "rescue", "after", "else", "->"),
+        optional(seq("#", repeat($._code))),
       ),
 
     ending_expression_value: ($) => seq(/end[\)\]\}]*/, repeat($._code)),
@@ -181,6 +183,8 @@ module.exports = grammar({
 
     attribute_name: ($) => token(prec(-1, /[^:<>{}"'/=\s][^<>{}"'/=\s]*/)),
 
-    text: ($) => /[^<>{}\s]([^<>{}]*[^<>{}\s])?/,
+    text: ($) => /[^<>{}&\s]([^<>{}&]*[^<>{}&\s])?/,
+
+    entity: ($) => /&(#([xX][0-9a-fA-F]{1,6}|[0-9]{1,5})|[A-Za-z]{1,30});?/,
   },
 });
