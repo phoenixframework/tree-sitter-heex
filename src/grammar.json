@@ -26,6 +26,10 @@
         },
         {
           "type": "SYMBOL",
+          "name": "entity"
+        },
+        {
+          "type": "SYMBOL",
           "name": "text"
         },
         {
@@ -550,6 +554,10 @@
         },
         {
           "type": "STRING",
+          "value": ":key"
+        },
+        {
+          "type": "STRING",
           "value": ":stream"
         },
         {
@@ -856,6 +864,22 @@
             },
             {
               "type": "STRING",
+              "value": "catch"
+            },
+            {
+              "type": "STRING",
+              "value": "rescue"
+            },
+            {
+              "type": "STRING",
+              "value": "after"
+            },
+            {
+              "type": "STRING",
+              "value": "else"
+            },
+            {
+              "type": "STRING",
               "value": "->"
             }
           ]
@@ -970,7 +994,11 @@
     },
     "text": {
       "type": "PATTERN",
-      "value": "[^<>{}\\s]([^<>{}]*[^<>{}\\s])?"
+      "value": "[^<>{}&\\s]([^<>{}&]*[^<>{}&\\s])?"
+    },
+    "entity": {
+      "type": "PATTERN",
+      "value": "&(#([xX][0-9a-fA-F]{1,6}|[0-9]{1,5})|[A-Za-z]{1,30});?"
     }
   },
   "extras": [
@@ -983,5 +1011,6 @@
   "precedences": [],
   "externals": [],
   "inline": [],
-  "supertypes": []
+  "supertypes": [],
+  "reserved": {}
 }
