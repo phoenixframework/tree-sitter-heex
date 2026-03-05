@@ -8,7 +8,7 @@ For EEx support, see [tree-sitter-eex](https://github.com/connorlay/tree-sitter-
 
 ### Requirements
 * [NodeJS](https://nodejs.org/en/) LTS
-* [asdf](https://asdf-vm.com/) (optional)
+* [mise](https://mise.jdx.dev/) (optional)
 * [Docker](https://www.docker.com/) (optional)
 
 See [Creating Parsers](https://tree-sitter.github.io/tree-sitter/creating-parsers) for more information.
@@ -19,10 +19,10 @@ See [Creating Parsers](https://tree-sitter.github.io/tree-sitter/creating-parser
 git clone https://github.com/phoenixframework/tree-sitter-heex.git
 ```
 
-2. (Optional) Install NodeJS via asdf:
+2. (Optional) Install NodeJS via mise:
 ```sh
 cd tree-sitter-heex
-asdf install
+mise install
 ```
 
 3. Install npm dependencies:
