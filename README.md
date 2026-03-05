@@ -60,5 +60,6 @@ See [Using Parsers](https://tree-sitter.github.io/tree-sitter/using-parsers) for
 
 ## Editor Support
 
-* [neovim](https://neovim.io/) via [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter)
-* [helix](https://helix-editor.com/)
+* [Neovim](https://neovim.io/) via [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter)
+* [Helix](https://helix-editor.com/)
+* [Zed](https://zed.dev/) via the [Elixir extension](https://zed.dev/extensions/elixir)
