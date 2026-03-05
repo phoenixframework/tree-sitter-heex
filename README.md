@@ -8,6 +8,7 @@ For EEx support, see [tree-sitter-eex](https://github.com/connorlay/tree-sitter-
 
 ### Requirements
 * [NodeJS](https://nodejs.org/en/) LTS
+* [`node-gyp-build`](https://www.npmjs.com/package/node-gyp-build)
 * [mise](https://mise.jdx.dev/) (optional)
 * [Docker](https://www.docker.com/) (optional)
 
@@ -25,27 +26,32 @@ cd tree-sitter-heex
 mise install
 ```
 
-3. Install npm dependencies:
+3. Install `node-gyp-build` globally:
+```sh
+npm install -g node-gyp-build
+```
+
+4. Install npm dependencies:
 ```sh
 npm install
 ```
 
-4. Run the tests:
+5. Run the tests:
 ```sh
 npm test
 ```
 
-5. Run the code formatter:
+6. Run the code formatter:
 ```sh
 npm run format
 ```
 
-6. (Optional) Update the tests (useful when contributing):
+7. (Optional) Update the tests (useful when contributing):
 ```sh
 npm run update_test
 ```
 
-7. (Optional) Run the web playground (requires Docker):
+8. (Optional) Run the web playground (requires Docker):
 ```sh
 npm run playground
 ```

@@ -23,7 +23,7 @@
   "license": "MIT",
   "dependencies": {
     "node-addon-api": "^7.1.0",
-    "node-gyp-build": "^4.8.0"
+    "node-gyp-build": "^4.8.4"
   },
   "devDependencies": {
     "prettier": "^2.7.1",
