@@ -418,6 +418,8 @@ index.html.heex
                 (quoted_attribute_value
                   (attribute_value))))
             (text)
+            (entity)
+            (text)
             (end_tag
               (tag_name)))
           (end_tag
