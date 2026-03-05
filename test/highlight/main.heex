@@ -6,8 +6,8 @@
   <head>
   <%# ^ tag %>
     <%= csrf_meta_tag() %>
-    <%# <- punctuation.bracket %>
-    <%#                 ^ punctuation.bracket %>
+    <%# <- keyword %>
+    <%#                 ^ keyword %>
     <link phx-track-static rel="stylesheet" src={ Routes.static_path(@conn, "/css/app.css") } />
     <%# <- punctuation.bracket %>
     <%# ^ tag %>
@@ -20,8 +20,8 @@
   </head>
   <body>
     <%= if true do %>
-    <%# <- punctuation.bracket %>
-    <%#            ^ punctuation.bracket %>
+    <%# <- keyword %>
+    <%#            ^ keyword %>
       <MyApp.Components.modal key=value key="value" key={ @value } />
       <%# <- punctuation.bracket %>
       <%# ^ module %>
