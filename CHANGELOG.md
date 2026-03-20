@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.9.0
+
+- Add new nodes to support HTML entities (e.g. `&amp;`, `&lbrace;`, `&rbrace;`)
+- Add injection queries for `<style>`/`<script>` tags and `style`/`onEVENT` attributes
+- Support `:key` HEEx special attributes on tags, components, and slots
+- Support all reserved do-end keywords as partial expression values
+
 ## 0.8.1
 
 - Fix edge cases where expression includes delimiters
