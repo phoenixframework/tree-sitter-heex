@@ -4,7 +4,7 @@ endif
 
 LANGUAGE_NAME := tree-sitter-heex
 HOMEPAGE_URL := https://github.com/phoenixframework/tree-sitter-heex
-VERSION := 0.8.1
+VERSION := 0.9.0
 
 # repository
 SRC_DIR := src
